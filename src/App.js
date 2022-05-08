@@ -5,6 +5,7 @@ import Details from './Pages/Details/Details';
 import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 import ManageInventories from './Pages/ManageInventories/ManageInventories';
+import MyItems from './Pages/MyItems/MyItems';
 import NotFound from './Pages/NotFound/NotFound';
 import Registration from './Pages/Registration/Registration';
 import RequireAuth from './RequireAuth/RequireAuth';
@@ -32,6 +33,11 @@ function App() {
             <Route path='add-new-item' element={
               <RequireAuth>
                 <AddNew></AddNew>
+              </RequireAuth>
+            }></Route>
+            <Route path='my-items' element={
+              <RequireAuth>
+               <MyItems></MyItems>
               </RequireAuth>
             }></Route>
             <Route path='*' element={<NotFound></NotFound>}></Route>

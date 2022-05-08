@@ -18,10 +18,10 @@ const Product = ({product}) => {
                 </p>
                 <div className="d-flex justify-content-between">
                   <div>
-                    <p className="product-price">Price: {price} taka</p>
+                    <p className="product-price">Price: {price} Taka</p>
                   </div>
                   <div> 
-                    <p className="product-qty">Qty: {stock} </p>
+                    <p className="product-qty">Stock Quantity : {stock} </p>
                   </div>
                 </div>
                 <div className="text-center">

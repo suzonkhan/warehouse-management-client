@@ -66,8 +66,8 @@ const Details = () => {
             <h2>{product.name}</h2>
             <p>Supplier:{product.supplier}</p>
             <p>{product.decs}</p>
-            <h5>Price:{product.price} taka </h5>
-            <p className="product-qty">Qty: {product.stock} </p>
+            <h5>Price : {product.price} Taka </h5>
+            <p className="product-qty">Stock Quantity : {product.stock} </p>
             <Button onClick={delivered}>Delivered</Button>
             <form className="add-stock-form" onSubmit={addStock}>
               <InputGroup className="my-5">

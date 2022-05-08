@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Row, Table } from "react-bootstrap";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
-import useProducts from "../../Hooks/useProducts";
-import "./ManageInventories.css";
-const ManageInventories = () => {
-  const [products, setProducts] = useProducts();
+import auth from "../../firebase.init";
 
-  const handleProduct = (id) => {
+const MyItems = () => {
+  const [products, setProducts] = useState([]);
+  const [user, loading, error] = useAuthState(auth);
+  const { displayName, email } = user;
+  const axios = require("axios").default;
+  console.log(displayName, email);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/products/${email}`)
+      .then(function (response) {
+        setProducts(response.data);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+  }, []);
+  
+  const handleProduct = id => {
     const proceed = window.confirm("Are you sure!!");
 
     const deleteSuccess = (data) => {
@@ -26,12 +43,15 @@ const ManageInventories = () => {
   return (
     <div className="section-block bg-white">
       <Container>
-        <Row> 
-        <Col className="text-end"> <Link className="btn btn-info mb-5" to='/add-new-item'>Add Product</Link> </Col>
-        </Row>
         <Row>
           <Col>
-            <Table striped bordered hover>
+            <h3 className="mb-5">Showing data of : {displayName}</h3>{" "}
+          </Col>
+        </Row>
+
+        <Row>
+          <Col>
+          <Table striped bordered hover>
               <thead>
                 <tr>
                   <th>SL</th>
@@ -58,7 +78,7 @@ const ManageInventories = () => {
                      <p> Stock: {product.stock}</p>
                     </td>
                     <td>
-                      {/* <Link className="btn btn-info mx-4" to={`/update-user/${user._id}`}>Update</Link> */}
+                      
                       <Button
                         variant="danger"
                         onClick={() => handleProduct(product._id)}
@@ -77,4 +97,4 @@ const ManageInventories = () => {
   );
 };
 
-export default ManageInventories;
+export default MyItems;
