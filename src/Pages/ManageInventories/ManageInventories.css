@@ -1,0 +1,7 @@
+table .product-image{
+    max-width: 80px;
+}
+table a{
+    color: initial;
+    text-decoration: none;
+}

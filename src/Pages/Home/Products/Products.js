@@ -5,7 +5,6 @@ import Product from "../Product/Product";
 
 const Products = () => {
   const [products, setProducts] = useProducts();
-  console.log(products);
   return (
     <div className="section-block">
       <Container>

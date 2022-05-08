@@ -5,10 +5,13 @@ const useProducts = () => {
     const [products, setProducts] = useState([]);
     useEffect(()=>{
         axios.get('http://localhost:5000/products') 
-        .then(function (response) { 
-            console.log(response.data);
+        .then(function (response) {  
             setProducts(response.data)
-        }) 
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+          }) 
     },[])
 return [products, setProducts];
 }

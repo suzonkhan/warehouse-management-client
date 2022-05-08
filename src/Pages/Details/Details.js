@@ -7,7 +7,8 @@ import {
   InputGroup,
   Row,
 } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import './Details.css';
 
 const Details = () => {
   const axios = require("axios").default;
@@ -68,7 +69,7 @@ const Details = () => {
             <h5>Price:{product.price} taka </h5>
             <p className="product-qty">Qty: {product.stock} </p>
             <Button onClick={delivered}>Delivered</Button>
-            <form onSubmit={addStock}>
+            <form className="add-stock-form" onSubmit={addStock}>
               <InputGroup className="my-5">
                 <FormControl
                   placeholder="Add stock"
@@ -83,6 +84,7 @@ const Details = () => {
                 </Button>
               </InputGroup>
             </form>
+            <Link className="btn btn-info" to='/manage-inventories'> Manage Inventories </Link>
           </Col>
         </Row>
       </Container>
