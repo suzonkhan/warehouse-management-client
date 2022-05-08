@@ -11,15 +11,18 @@ const Header = () => {
     <header className="App-header">
       <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
         <Container>
-          
           <Link to="/" className="navbar-brand">
-            DressesBD
+          Qinventory
+
           </Link>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <Link to="/" className="nav-link">
                 Home
+              </Link>
+              <Link to="/about" className="nav-link">
+                About
               </Link>
               <Link to="/blog" className="nav-link">
                 Blog

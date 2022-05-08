@@ -20,3 +20,29 @@ body{
 .product-box .product-info{
     padding: 20px;
 }
+.main-footer{
+    color: #fff;
+    padding-bottom: 10px !important;
+}
+.main-footer a{
+    color: inherit;
+    text-decoration: none;
+}
+.main-footer a:hover{
+    color: rgb(142, 142, 142);
+}
+.copyright{
+    border-top:1px solid rgb(58, 58, 58);
+}
+.testimonial-content{
+    padding: 0 100px 50px;
+    text-align: center;
+}
+.testimonial-content .user-info img{
+    max-width: 100px;
+    text-align: center;
+    margin: 0 auto 10px;
+}
+.testimonial-content .user-info{
+    margin-bottom: 10px;
+}
