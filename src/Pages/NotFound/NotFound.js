@@ -10,6 +10,12 @@ const NotFound = () => {
             <h2>Not Found</h2>
           </Col>
         </Row>
+        <Row>
+          <Col className="not-found">
+             <h2>4<span>0</span>4</h2>
+             <p className="lead">This page is not found.</p>  
+          </Col>
+        </Row>
       </Container>
     </div>
   );

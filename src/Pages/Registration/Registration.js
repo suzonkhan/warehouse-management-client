@@ -1,9 +1,10 @@
-import React from "react";
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import React, { useState } from "react";
+import { Alert, Button, Col, Container, Form, Row, Spinner } from "react-bootstrap";
 import auth from "../../firebase.init";
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from "react-router-dom";
 const Registration = () => {
+  const [loginError, setLoginError] = useState(false)
     let navigate = useNavigate();
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
@@ -12,23 +13,25 @@ const Registration = () => {
     user,
     loading,
     error,
-  ] = useCreateUserWithEmailAndPassword(auth);
+  ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const registrationSubmit = event => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
     console.log(email,password );
-    createUserWithEmailAndPassword(email, password)
+    createUserWithEmailAndPassword(email, password);
+    if (error) {
+      setLoginError(true);
+      // console.log(error);
+     }
   }
-  if (error) {
+  
+  if (loading) {
     return (
-      <div>
-        <p>Error: {error.message}</p>
+      <div className="section-block bg-white text-center">
+       <Spinner className="m-auto" animation="border" variant="primary" />
       </div>
     );
-  }
-  if (loading) {
-    return <p>Loading...</p>;
   }
   if (user) {
     navigate(from, { replace: true });
@@ -43,6 +46,8 @@ const Registration = () => {
         </Row>
         <Row className="justify-content-center">
           <Col xs={12} sm={6} md={4}>
+          
+          {loginError && <Alert variant="danger">{error.message}</Alert>}
             <Form onSubmit={registrationSubmit}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>

@@ -4,6 +4,7 @@ import About from './Pages/About/About';
 import AddNew from './Pages/AddNew/AddNew';
 import Blog from './Pages/Blog/Blog';
 import Details from './Pages/Details/Details';
+import ForgetPassword from './Pages/ForgetPassword/ForgetPassword';
 import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 import ManageInventories from './Pages/ManageInventories/ManageInventories';
@@ -23,6 +24,7 @@ function App() {
             <Route path='about' element={<About></About>}></Route>
             <Route path='blog' element={<Blog></Blog>}></Route>
             <Route path='login' element={<Login></Login>}></Route>
+            <Route path='forget-password' element={<ForgetPassword></ForgetPassword>}></Route>
             <Route path='registration' element={<Registration></Registration>}></Route>
             <Route path='inventory/:id' element={
               <RequireAuth>

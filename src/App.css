@@ -46,3 +46,12 @@ body{
 .testimonial-content .user-info{
     margin-bottom: 10px;
 }
+.not-found h2{
+    font-size: 180px;
+}
+.not-found h2 span{
+    color: #0d6efd;
+}
+.not-found p{
+    font-size: 2.5rem;
+}
