@@ -18,8 +18,7 @@ const Footer = () => {
                 Address: House:2, Road: 2, Mirpur-2, Dhaka-1200, Bangladesh.
               </p>
               <ul>
-                <li>Mobile: 01941 586974</li>
-                <li>Mobile: 01941 586974</li>
+                <li>Mobile: 01941 586974</li> 
                 <li>Email: contact@qinventory.com </li>
               </ul>
             </div>

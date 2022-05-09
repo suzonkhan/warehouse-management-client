@@ -9,6 +9,11 @@ const Products = () => {
   return (
     <div className="section-block">
       <Container>
+      <Row>
+          <Col>
+            <h2 className="text-center mb-5">Featured Products</h2>
+          </Col>
+        </Row>
         <Row>
           {products.slice(0, 6).map((product) => (
             <Product key={product._id} product={product}></Product>

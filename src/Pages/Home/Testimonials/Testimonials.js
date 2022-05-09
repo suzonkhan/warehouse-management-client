@@ -11,7 +11,7 @@ const Testimonials = () => {
           </Col>
         </Row>
         <Row className="justify-content-center">
-          <Col xs={12} sm={8} md={8}>
+          <Col xs={12} md={12} lg={8}>
             <Carousel variant="dark">
               <Carousel.Item>
                 <div className="testimonial-content">

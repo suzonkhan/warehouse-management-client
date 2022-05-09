@@ -9,8 +9,8 @@ import {
 import { useSendPasswordResetEmail } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import {  toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 const ForgetPassword = () => {
     const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth);
   const submitResetPassword = async (event) => {
@@ -22,7 +22,7 @@ const ForgetPassword = () => {
   };
   return (
     <div className="section-block bg-white">
-      <ToastContainer />
+     
       <Container>
         <div>
           <h2>Login</h2>

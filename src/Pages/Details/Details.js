@@ -80,7 +80,7 @@ const Details = () => {
                   required
                 />
                 <Button type="submit" variant="secondary" id="button-addon2">
-                  Button
+                  Add Stock
                 </Button>
               </InputGroup>
             </form>

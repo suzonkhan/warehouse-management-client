@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 const axios = require('axios').default;
 
@@ -29,7 +30,8 @@ const AddNew = () => {
         console.log(newProduct);
         axios.post('https://vast-lowlands-94702.herokuapp.com/product', newProduct)
           .then(function (response) {
-            console.log(response);
+            // console.log(response);
+            toast("Product added successfully!");
             event.target.reset();
           })
           .catch(function (error) {

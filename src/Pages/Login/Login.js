@@ -7,6 +7,7 @@ import {
   useSignInWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+const axios = require("axios").default;
 
 const Login = () => {
 const [loginError, setLoginError] = useState(false)
@@ -16,15 +17,19 @@ const [loginError, setLoginError] = useState(false)
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
 
-  const loginSubmit = (event) => {
+  const loginSubmit = async (event) => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
-    signInWithEmailAndPassword(email, password);
+    await signInWithEmailAndPassword(email, password);
      console.log(loginError);
+     const {data} = await axios.post('https://vast-lowlands-94702.herokuapp.com/login', {email})
+      localStorage.setItem('accessToken', data.accessToken)
      if (error) {
       setLoginError(true);
      }
+     navigate(from, { replace: true });
+     
   };
   // if (error) {
     // return (
@@ -41,9 +46,9 @@ const [loginError, setLoginError] = useState(false)
       </div>
     );
   }
-  if (user) {
-    navigate(from, { replace: true });
-  }
+  // if (user) {
+  //   // navigate(from, { replace: true });
+  // }
 
   return (
     <div className="section-block bg-white">

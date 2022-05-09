@@ -3,17 +3,21 @@ import { Button, Col, Container, Row, Table } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
-
+const axios = require("axios").default;
 const MyItems = () => {
   const [products, setProducts] = useState([]);
   const [user, loading, error] = useAuthState(auth);
   const { displayName, email } = user;
-  const axios = require("axios").default;
+ 
   console.log(displayName, email);
+// 
+  useEffect(() => { 
+    axios.get(`https://vast-lowlands-94702.herokuapp.com/products?email=${email}`, {
+      headers:{
+        authorization: `Bearer ${localStorage.getItem('accessToken')}`
+      }
+    })
 
-  useEffect(() => {
-    axios
-      .get(`https://vast-lowlands-94702.herokuapp.com/products/${email}`)
       .then(function (response) {
         setProducts(response.data);
       })
