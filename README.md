@@ -1,14 +1,16 @@
 ## Project name: Qinventory 
-## [Live Site URL](#)
+## [Live Site URL](https://dresses-warehouse.web.app/)
 
  ### Features 
- * Lucrative Bootstrap carasul 
+ * Bootstrap carasul 
  * Professional's product card
  * Firebase authorization and authentication
  * Login with email and password 
  * Login with google 
  * Register with email and password
  * 404 page 
+ * Mange Stock
+ * Add new product with name, image, description and product price.
 
 ### Technologies
 * React
@@ -17,3 +19,5 @@
 * React Router
 * Firebase authorization and authentication
 * Firebase Hosting
+* Mongodb
+* NodeJs Server
