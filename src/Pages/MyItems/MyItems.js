@@ -12,7 +12,7 @@ const MyItems = () => {
   console.log(displayName, email);
 // 
   useEffect(() => { 
-    axios.get(`https://vast-lowlands-94702.herokuapp.com/products?email=${email}`, {
+    axios.get(`https://vast-lowlands-94702.herokuapp.com/product?email=${email}`, {
       headers:{
         authorization: `Bearer ${localStorage.getItem('accessToken')}`
       }
