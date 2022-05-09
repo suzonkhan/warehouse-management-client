@@ -17,7 +17,7 @@ const ManageInventories = () => {
       }
     };
     if (proceed) {
-      const url = `http://localhost:5000/product/${id}`;
+      const url = `https://vast-lowlands-94702.herokuapp.com/product/${id}`;
       fetch(url, { method: "DELETE" })
         .then((res) => res.json())
         .then((data) => deleteSuccess(data));

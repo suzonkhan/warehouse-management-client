@@ -4,7 +4,7 @@ const useProducts = () => {
     const axios = require('axios').default;
     const [products, setProducts] = useState([]);
     useEffect(()=>{
-        axios.get('http://localhost:5000/products') 
+        axios.get('https://vast-lowlands-94702.herokuapp.com/products') 
         .then(function (response) {  
             setProducts(response.data)
         })

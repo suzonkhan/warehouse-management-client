@@ -27,7 +27,7 @@ const AddNew = () => {
             supplier
         }
         console.log(newProduct);
-        axios.post('http://localhost:5000/product', newProduct)
+        axios.post('https://vast-lowlands-94702.herokuapp.com/product', newProduct)
           .then(function (response) {
             console.log(response);
             event.target.reset();

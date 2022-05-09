@@ -16,12 +16,12 @@ const Details = () => {
   //   console.log(id);
   const [product, setProduct] = useState({});
   useEffect(() => {
-    axios.get(`http://localhost:5000/product/${id}`).then(function (response) {
+    axios.get(`https://vast-lowlands-94702.herokuapp.com/product/${id}`).then(function (response) {
       setProduct(response.data);
     });
   }, []);
   const updateProductData = (newProduct) => {
-    const url = `http://localhost:5000/product/${id}`;
+    const url = `https://vast-lowlands-94702.herokuapp.com/product/${id}`;
     fetch(url, {
       method: "PUT", // or 'POST'
       headers: {

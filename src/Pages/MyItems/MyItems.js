@@ -13,7 +13,7 @@ const MyItems = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/products/${email}`)
+      .get(`https://vast-lowlands-94702.herokuapp.com/products/${email}`)
       .then(function (response) {
         setProducts(response.data);
       })
@@ -34,7 +34,7 @@ const MyItems = () => {
       }
     };
     if (proceed) {
-      const url = `http://localhost:5000/product/${id}`;
+      const url = `https://vast-lowlands-94702.herokuapp.com/product/${id}`;
       fetch(url, { method: "DELETE" })
         .then((res) => res.json())
         .then((data) => deleteSuccess(data));
