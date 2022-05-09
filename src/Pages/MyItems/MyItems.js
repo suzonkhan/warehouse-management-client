@@ -8,15 +8,16 @@ const MyItems = () => {
   const [products, setProducts] = useState([]);
   const [user, loading, error] = useAuthState(auth);
   const { displayName, email } = user;
- 
+
   console.log(displayName, email);
-// 
-  useEffect(() => { 
-    axios.get(`https://vast-lowlands-94702.herokuapp.com/product?email=${email}`, {
-      headers:{
-        authorization: `Bearer ${localStorage.getItem('accessToken')}`
-      }
-    })
+  //
+  useEffect(() => {
+    axios
+      .get(`https://vast-lowlands-94702.herokuapp.com/product?email=${email}`, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      })
 
       .then(function (response) {
         setProducts(response.data);
@@ -26,8 +27,8 @@ const MyItems = () => {
         console.log(error);
       });
   }, []);
-  
-  const handleProduct = id => {
+
+  const handleProduct = (id) => {
     const proceed = window.confirm("Are you sure!!");
 
     const deleteSuccess = (data) => {
@@ -55,7 +56,7 @@ const MyItems = () => {
 
         <Row>
           <Col>
-          <Table striped bordered hover>
+            <Table striped bordered hover>
               <thead>
                 <tr>
                   <th>SL</th>
@@ -76,13 +77,14 @@ const MyItems = () => {
                       </div>
                     </td>
                     <td>
-                      <p><Link to={`/inventory/${product._id}`}>
-                        {product.name}
-                      </Link></p>
-                     <p> Stock: {product.stock}</p>
+                      <p>
+                        <Link to={`/inventory/${product._id}`}>
+                          {product.name}
+                        </Link>
+                      </p>
+                      <p> Stock: {product.stock}</p>
                     </td>
                     <td>
-                      
                       <Button
                         variant="danger"
                         onClick={() => handleProduct(product._id)}
